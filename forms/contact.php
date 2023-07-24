@@ -1,6 +1,27 @@
 <?php
+$name = $_POST['name'];
+$email = $_POST['email'];
+$subject = $_POST['subject'];
+$message = $_POST['message'];
 
-  $receiving_email_address = 'hemrajpant780@gmail.com';
+//Database Connection
+$conn = new mysqli('localhost','root','','hemraj');
+if($conn->connect_error){
+die('Connection Failed : ' .$conn->connect_error);
+}else
+{
+$stmt = $conn->prepare("Insert into test(name, email,subject, message )
+                   values(?,?,?,?)");
+     $stmt->bind_param("ssss", $name, $email, $subject, $message);
+  $stmt->execute();
+  echo "Message Sent Successfully...."
+    $stmt->close();
+  $conn->close();
+}
+
+/*
+
+  $receiving_email_address = '#####';
 
   if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
     include( $php_email_form );
@@ -17,9 +38,9 @@
   $contact->subject = $_POST['subject'];
 
   $contact->smtp = array(
-    'host' => 'hemrajpant780@gmail.com',
-    'username' => 'hemraj',
-    'password' => 'heygod1234',
+    'host' => '######',
+    'username' => '#####',
+    'password' => '###',
     'port' => '587'
   );
   
@@ -29,4 +50,5 @@
   $contact->add_message( $_POST['message'], 'Message', 10);
 
   echo $contact->send();
+*/
 ?>
