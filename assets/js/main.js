@@ -319,4 +319,4 @@
       navLinks.classList.toggle("active");
     });
   });
-})()
+})();
