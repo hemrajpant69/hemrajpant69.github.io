@@ -252,5 +252,65 @@
    * Initiate Pure Counter 
    */
   new PureCounter();
+  document.addEventListener("DOMContentLoaded", function () {
+    const inputs = document.querySelectorAll(".input");
+
+    function focusFunc() {
+      let parent = this.parentNode;
+      parent.classList.add("focus");
+    }
+
+    function blurFunc() {
+      let parent = this.parentNode;
+      if (this.value == "") {
+        parent.classList.remove("focus");
+      }
+    }
+
+    inputs.forEach((input) => {
+      input.addEventListener("focus", focusFunc);
+      input.addEventListener("blur", blurFunc);
+    });
+
+    const sendButton = document.getElementById("sendButton");
+    const usernameInput = document.querySelector('input[name="name"]');
+    const emailInput = document.querySelector('input[name="email"]');
+    const subjectInput = document.querySelector('input[name="subject"]');
+    const messageInput = document.querySelector('textarea[name="message"]');
+
+    sendButton.addEventListener("click", function () {
+      const username = usernameInput.value;
+      const email = emailInput.value;
+      const phone = phoneInput.value;
+      const message = messageInput.value;
+      const phoneNumber = "+9779806400774";
+
+      if (
+        username.trim() !== "" &&
+        email.trim() !== "" &&
+        phone.trim() !== "" &&
+        message.trim() !== ""
+      ) {
+        const encodedMessage = encodeURIComponent(
+          `Username: ${username}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`
+        );
+        window.open(
+          `https://wa.me/${phoneNumber}?text=${encodedMessage}`,
+          "_blank"
+        );
+      } else {
+        alert("Please fill in all fields.");
+      }
+    });
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuToggle.addEventListener("click", function () {
+      navLinks.classList.toggle("active");
+    });
+  });
+})();
+
 
 })()
