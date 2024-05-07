@@ -1019,7 +1019,7 @@ section {
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: #37b3ed;
+  background: #0095db;
 }
 
 @keyframes animate-loading {
@@ -1111,4 +1111,24 @@ section {
     width: auto;
     padding-right: 20px 15px;
   }
+}
+
+
+.btn {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #45a049; /* Darker Green */
+  color: white;
 }
