@@ -1,0 +1,18 @@
+{
+  "posts": [
+    {
+      "title": "First Blog Post",
+      "description": "This is the description of the first blog post.",
+      "likes": 1,
+      "comments": [
+        "hii"
+      ]
+    },
+    {
+      "title": "Second Blog Post",
+      "description": "This is the description of the second blog post.",
+      "likes": 0,
+      "comments": []
+    }
+  ]
+}
