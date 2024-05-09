@@ -1,18 +1,35 @@
 {
     "posts": [
-        {
-            "title": "JavaFX Chat Application",
-            "description": "This is the description of the first blog post.",
-            "imageSrc": "resources/img/blog1.png",
-            "likes": [],
-            "comments": []
-        },
-        {
-            "title": "Second Blog Post",
-            "description": "This is the description of the second blog post.",
-            "imageSrc": "resources/img/hemraj.jpg",
-            "likes": [],
-            "comments": []
-        }
+      {
+        "title": "JavaFX Chat Application",
+        "description": "Built a real-time chat application using JavaFX for the front-end and Java for the back-end. The app supports multiple users, sending text messages, and even sharing images! Key features include real-time messaging, user authentication, image sharing, and a dynamic UI. Tech stack includes JavaFX for the front-end and Java with Socket Programming for real-time communication. Methods used include Socket Programming, Java Object Serialization, Multithreading, JavaFX Controls, and Base64 Encoding. A hands-on project exploring JavaFX, Socket Programming, and UI design. Exciting to implement features like image sharing and real-time messaging!",
+        "imageSrc": "resources/img/blog1.png",
+        "likes": [],
+        "comments": []
+      },
+      {
+        "title": "Hackfest 2024 Experience",
+  "description": "No matter if we lose, we learn a lot. We also enjoy a lot. Through this experience, we gain insights into teamwork and build strong connections in the tech network. Thank you so much, Nepal Open Source Klub(NOSK), and to all the team members and mentors who have been a part of this journey. #hackathon #hackfest2024 #ncit #nosk",
+        "imageSrc": "resources/img/blog2.png",
+        "likes": [],
+        "comments": []
+      },
+      {
+    
+            "title": "Hackathon Journey: Healthcare Crowdfunding WebApp",
+            "description": "Just wrapped up an incredible 72-hour hackathon journey with my brilliant team! Despite the challenges, we gave it our all in developing a healthcare crowdfunding webapp using HTML, CSS, JS, and Django. 🏥💻 Grateful for the learning, collaboration, and sleepless nights. Onwards and upwards! 💪 #hackathon #techinnovation #TeamWork #hackfest2024 #ncit",
+        "imageSrc": "resources/img/blog3.png",
+        "likes": [],
+        "comments": []
+      },
+      {
+        "title": "Gratitude for Insightful Git Classes",
+  "description": "Grateful for the insightful Git classes provided by my senior, Bibek Dhakal. His daily 2-hour sessions were invaluable in building my understanding. Now, thanks to the engaging sessions by senior Satya Raj Awasthi and Abhilekh Gautam from the NOSK team's workshop, I'm enjoying a helpful revision. Appreciate the knowledge and guidance from seniors 🙏😍 #git #github #opensource #gitlab",
+  
+        "imageSrc": "resources/img/blog4.png",
+        "likes": [],
+        "comments": []
+      }
     ]
-}
+  }
+  
