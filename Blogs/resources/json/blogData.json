@@ -1,6 +1,14 @@
 {
     "posts": [
       {
+        "title": "React Contact Form with Web3Forms API Integration",
+        "description": "Developed a contact form using React.js with integration of the Web3Forms API. The contact form allows users to submit their name, email, phone number, and message. Upon submission, the form data is sent to the Web3Forms API, which handles the backend processing and sends the form data to the specified email address. Implemented error handling to display success or error messages based on the API response. Used React Hooks for state management and form submission handling. A straightforward and efficient solution for creating a contact form with email integration in React applications.",
+        "imageSrc": "resources/img/blog5.png",
+        "likes": [],
+        "comments": []
+      },
+      
+      {
         "title": "JavaFX Chat Application",
         "description": "Built a real-time chat application using JavaFX for the front-end and Java for the back-end. The app supports multiple users, sending text messages, and even sharing images! Key features include real-time messaging, user authentication, image sharing, and a dynamic UI. Tech stack includes JavaFX for the front-end and Java with Socket Programming for real-time communication. Methods used include Socket Programming, Java Object Serialization, Multithreading, JavaFX Controls, and Base64 Encoding. A hands-on project exploring JavaFX, Socket Programming, and UI design. Exciting to implement features like image sharing and real-time messaging!",
         "imageSrc": "resources/img/blog1.png",
