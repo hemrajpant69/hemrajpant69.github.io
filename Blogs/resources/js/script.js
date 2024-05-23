@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
         shareBtn.innerHTML = '<i class="fas fa-share"></i>';
         shareBtn.setAttribute('aria-label', 'Share');
         shareBtn.addEventListener('click', function() {
+            updateMetaTags(post);
             sharePost(post);
         });
 
@@ -152,6 +153,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000);
     }
 
+    // Function to update Open Graph meta tags
+    function updateMetaTags(post) {
+        document.getElementById('og-title').setAttribute('content', post.title);
+        document.getElementById('og-description').setAttribute('content', post.description);
+        document.getElementById('og-image').setAttribute('content', post.imageSrc);
+        document.getElementById('og-url').setAttribute('content', window.location.href);
+    }
+
     // Function to share post
     function sharePost(post) {
         const url = encodeURIComponent(window.location.href);
@@ -159,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const description = encodeURIComponent(post.description);
         const image = encodeURIComponent(post.imageSrc);
 
-        const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&title=${title}&description=${description}&picture=${image}`;
+        const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&t=${title}`;
         const twitterUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
         const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}&summary=${description}`;
 
