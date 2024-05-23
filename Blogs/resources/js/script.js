@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const image = document.createElement('img');
         image.classList.add('card-img-top');
         image.src = post.imageSrc;
-        image.alt = ' image';
+        image.alt = post.title;
 
         const description = document.createElement('p');
         description.classList.add('card-text', 'description');
@@ -81,9 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
         shareBtn.innerHTML = '<i class="fas fa-share"></i>';
         shareBtn.setAttribute('aria-label', 'Share');
         shareBtn.addEventListener('click', function() {
-            sharePostOnFacebook(post);
-            sharePostOnTwitter(post);
-            sharePostOnLinkedIn(post);
+            sharePost(post);
         });
 
         const commentInput = document.createElement('input');
@@ -154,19 +152,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000);
     }
 
-    // Function to share post on Facebook
-    function sharePostOnFacebook(post) {
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank');
-    }
+    // Function to share post
+    function sharePost(post) {
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent(post.title);
+        const description = encodeURIComponent(post.description);
+        const image = encodeURIComponent(post.imageSrc);
 
-    // Function to share post on Twitter
-    function sharePostOnTwitter(post) {
-        window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(post.title)}`, '_blank');
-    }
+        const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&title=${title}&description=${description}&picture=${image}`;
+        const twitterUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+        const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}&summary=${description}`;
 
-    // Function to share post on LinkedIn
-    function sharePostOnLinkedIn(post) {
-        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank');
+        // Open share dialogs
+        window.open(facebookUrl, '_blank');
+        window.open(twitterUrl, '_blank');
+        window.open(linkedInUrl, '_blank');
     }
-
 });
