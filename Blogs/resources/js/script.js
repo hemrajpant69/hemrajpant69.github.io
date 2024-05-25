@@ -1,11 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const blogPostsContainer = document.getElementById('blog-posts');
+    const blogPostsContainer = document.getElementById('blog-posts-row');
 
     // Fetch blog data from JSON file
     fetch('resources/json/blogData.json')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
         .then(data => {
             renderBlogPosts(data.posts);
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
         });
 
     // Function to render existing blog posts
@@ -13,14 +21,22 @@ document.addEventListener('DOMContentLoaded', function() {
         blogPostsContainer.innerHTML = ''; // Clear previous posts
         posts.forEach((post, postIndex) => {
             const card = createCard(post, postIndex);
-            blogPostsContainer.appendChild(card);
+            const col = document.createElement('div');
+            col.classList.add('col-md-4', 'mb-4');
+            col.appendChild(card);
+            blogPostsContainer.appendChild(col);
         });
     }
 
     // Function to create a card for each blog post
     function createCard(post, postIndex) {
         const card = document.createElement('div');
-        card.classList.add('card', 'mb-3');
+        card.classList.add('card', 'h-100');
+
+        const image = document.createElement('img');
+        image.classList.add('card-img-top');
+        image.src = post.imageSrc;
+        image.alt = post.title;
 
         const cardBody = document.createElement('div');
         cardBody.classList.add('card-body');
@@ -28,12 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const title = document.createElement('h5');
         title.classList.add('card-title');
         title.textContent = post.title;
-
-        // Add image component
-        const image = document.createElement('img');
-        image.classList.add('card-img-top');
-        image.src = post.imageSrc;
-        image.alt = post.title;
 
         const description = document.createElement('p');
         description.classList.add('card-text', 'description');
@@ -44,12 +54,18 @@ document.addEventListener('DOMContentLoaded', function() {
         readMoreLink.href = '#';
         readMoreLink.classList.add('btn', 'btn-primary', 'read-more');
         readMoreLink.textContent = 'Read More';
-        readMoreLink.addEventListener('click', function() {
-            if (description.innerHTML === shortDescription) {
+        readMoreLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            const cardBody = readMoreLink.closest('.card-body');
+            const description = cardBody.querySelector('.description');
+            const isExpanded = cardBody.classList.contains('expanded');
+            if (!isExpanded) {
                 description.innerHTML = post.description;
+                cardBody.classList.add('expanded');
                 readMoreLink.textContent = 'Read Less';
             } else {
                 description.innerHTML = shortDescription;
+                cardBody.classList.remove('expanded');
                 readMoreLink.textContent = 'Read More';
             }
         });
@@ -109,8 +125,19 @@ document.addEventListener('DOMContentLoaded', function() {
         commentsContainer.classList.add('comments');
         renderComments(post.comments, commentsContainer);
 
-        cardBody.appendChild(title);
+        const showAllCommentsBtn = document.createElement('button');
+        showAllCommentsBtn.classList.add('btn', 'btn-primary', 'show-comments-btn', 'mb-2');
+        showAllCommentsBtn.textContent = 'See All Comments';
+        showAllCommentsBtn.addEventListener('click', function() {
+            renderComments(post.comments, commentsContainer);
+        });
+
+        if (post.comments.length > 3) {
+            cardBody.appendChild(showAllCommentsBtn); // Add "See All Comments" button if there are more than 3 comments
+        }
+
         cardBody.appendChild(image);
+        cardBody.appendChild(title);
         cardBody.appendChild(description);
         cardBody.appendChild(readMoreLink);
         cardBody.appendChild(document.createElement('br'));
@@ -167,7 +194,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const title = encodeURIComponent(post.title);
         const description = encodeURIComponent(post.description);
         const image = encodeURIComponent(post.imageSrc);
-
         const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&t=${title}`;
         const twitterUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
         const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=${title}&summary=${description}`;

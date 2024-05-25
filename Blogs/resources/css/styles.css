@@ -1,68 +1,147 @@
-/* Custom CSS for styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #2900dd, #161516); /* Vibrant gradient background */
+    color: #fff; /* Text color */
+}
+
+/* Header and Footer Styles */
+.header, .footer {
+    background-color: #2b2e4a; /* Dark purple background for header and footer */
+    color: #fff; /* Text color for header and footer */
+    padding: 1rem 2rem; /* Padding for header and footer */
+}
+
+.navbar {
+    padding: 1rem 2rem;
+}
+
+.nav-link {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #adb5bd;
+}
+
+/* Main Blog Container Styles */
+#blog-posts {
+    margin-top: 2rem;
+}
+
+/* Card Styles */
+.card {
+    background-color: #fff; /* White background for cards */
+    border-radius: 20px; /* Rounded corners for cards */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+    overflow: hidden; /* Hide overflowing content */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift cards on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Enhanced shadow effect */
+}
+
+.card-title {
+    font-size: 1.5rem; /* Larger title text */
+    font-weight: bold; /* Bold font weight */
+    color: #333; /* Text color */
+    margin-bottom: 1rem; /* Add margin to bottom */
+}
+
 .card-body {
-    position: relative;
+    padding: 2rem; /* Increased padding for content */
 }
 
 .card-footer {
-    padding: 0.5rem 1rem;
+    padding: 1rem 2rem; /* Padding for footer */
+    background-color: #f0f0f0; /* Light background for footer */
+    border-bottom-left-radius: 20px; /* Rounded corners for footer */
+    border-bottom-right-radius: 20px;
 }
 
+/* Button Styles */
+.btn {
+    background-color: #ff758c; /* Pink background for buttons */
+    color: #fff; /* Text color for buttons */
+    border: none; /* No border */
+    padding: 0.75rem 1.5rem; /* Padding for buttons */
+    border-radius: 30px; /* Rounded corners for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+}
+
+.btn:hover {
+    background-color: #ff7eb3; /* Darker pink background on hover */
+}
+
+/* Image Styles */
+.card-img-top {
+    width: 100%;
+    height: 300px; /* Increased height for the image */
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* Description Styles */
+.description {
+    color: #6c757d;
+}
+
+/* Like, comment, and share buttons */
 .like-btn,
 .comment-btn,
-.reply-btn {
+.share-btn {
     display: inline-block;
     border: none;
     background-color: transparent;
     cursor: pointer;
-    padding: 0;
+    padding: 0.5rem 1rem; /* Added padding */
+    color: #6c757d;
+    transition: all 0.3s ease; /* Added transition */
 }
 
 .like-btn i,
 .comment-btn i,
-.reply-btn i {
+.share-btn i {
     font-size: 1.5rem;
 }
 
 .like-btn:hover,
 .comment-btn:hover,
-.reply-btn:hover {
+.share-btn:hover {
     color: #1877f2; /* Facebook blue */
 }
 
-.comment-btn,
-.reply-btn {
-    margin-right: 1rem;
-}
-
-/* Styling for comment and reply input */
+/* Comments and reply section */
 .comment-input,
 .reply-input {
     width: calc(100% - 40px);
     padding: 0.375rem 0.75rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem; /* Added margin */
     display: inline-block;
     vertical-align: middle;
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
 }
 
-/* Styling for comment and reply button */
 .comment-btn,
 .reply-btn {
-    padding: 0.375rem 0.75rem;
     border-radius: 0.25rem;
-    background-color: #f0f2f5; /* Facebook light grey */
-    color: #333;
-    border: 1px solid #ced4da;
-    transition: background-color 0.3s ease;
+    background-color: #007bff; /* Updated background color */
+    color: #ffffff;
+    border: 1px solid #007bff; /* Updated border color */
+    transition: all 0.3s ease; /* Added transition */
 }
 
 .comment-btn:hover,
 .reply-btn:hover {
-    background-color: #d9dce1; /* Facebook dark grey */
+    background-color: #0056b3; /* Darker blue */
+    border-color: #0056b3; /* Darker border color */
 }
 
-/* Styling for comments and replies */
 .comments,
 .replies {
     margin-top: 1rem;
@@ -83,22 +162,71 @@
 .reply-text {
     margin-bottom: 0.5rem;
 }
+.comment-text {
+    color: green;
+}
 
 .comment-controls,
 .reply-controls {
     margin-top: 0.5rem;
 }
 
-/* Styling for like button */
-.like-btn {
-    color: #1877f2; /* Facebook blue */
+/* Image and card styling */
+.card-img-top {
+    width: 100%;
+    height: 250px; /* Increased height for the image */
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Read More button */
+.read-more {
+    color: #ffffff;
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.like-btn:hover {
-    color: #1655b3; /* Darker blue */
+.read-more:hover {
+    color: #00ab1f;
+    text-decoration: underline;
 }
-.card-img-top {
-    max-width: 40%;
-    height: auto;
+
+/* Styling for title and description */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.description {
+    color: #6c757d;
+}
+
+/* Responsive layout */
+@media (min-width: 768px) {
+    .col-md-4 {
+        flex: 0 0 auto;
+        width: 33.3333%;
+    }
+}
+
+@media (max-width: 767px) {
+    .card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Footer styling */
+footer .container {
+    padding: 2rem 1rem;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #adb5bd;
 }
